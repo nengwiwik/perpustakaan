@@ -49,6 +49,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
-$route['404_override'] = '';
+$route['default_controller'] = 'auth';
+$route['404_override'] = 'auth/blocked';
 $route['translate_uri_dashes'] = FALSE;
+
+// custom routes
+$route['login'] = 'auth';
+$route['register'] = 'auth/register';
+$route['logout'] = 'auth/logout';
+
+// Super Admin
+$route['administrators'] = 'admin/users';
+
+// Admin
+$route['anggota'] = 'librarian/users';
+$route['buku'] = 'librarian/buku';
+$route['peminjaman-buku'] = 'librarian/peminjaman';
+$route['peminjaman-buku/(:num)'] = 'librarian/peminjaman_detail/$1';
+
+// Anggota
+$route['daftar-buku'] = 'anggota/buku';
+$route['peminjaman'] = 'anggota/peminjaman';
+$route['peminjaman/(:num)'] = 'anggota/peminjaman_detail/$1';
+$route['histori-peminjaman'] = 'anggota/histori_peminjaman';
+$route['histori-peminjaman/(:num)'] = 'anggota/histori_peminjaman_detail/$1';
