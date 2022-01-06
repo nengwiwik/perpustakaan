@@ -67,6 +67,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      * @param  string $name
      * @return bool
      */
+	#[\ReturnTypeWillChange]
     public function offsetExists($name)
     {
         return (isset($this->data[$name]));
@@ -78,6 +79,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      * @param  string $name
      * @return mixed
      */
+	#[\ReturnTypeWillChange]
     public function offsetGet($name)
     {
         return (isset($this->data[$name])) ? $this->data[$name] : null;
@@ -101,6 +103,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      * @param mixed $maxLength
      * @throws Exception\InvalidArgumentException
      */
+	#[\ReturnTypeWillChange]
     public function offsetSet($name, $value, $errata = null, $maxLength = null)
     {
         $position = false;
@@ -143,6 +146,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      * @param  string $name
      * @return ParameterContainer
      */
+	#[\ReturnTypeWillChange]
     public function offsetUnset($name)
     {
         if (is_int($name) && isset($this->positions[$name])) {
@@ -337,6 +341,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      *
      * @return int
      */
+	#[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->data);
@@ -347,6 +352,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      *
      * @return mixed
      */
+	#[\ReturnTypeWillChange]
     public function current()
     {
         return current($this->data);
@@ -357,6 +363,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      *
      * @return mixed
      */
+	#[\ReturnTypeWillChange]
     public function next()
     {
         return next($this->data);
@@ -367,6 +374,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      *
      * @return mixed
      */
+	#[\ReturnTypeWillChange]
     public function key()
     {
         return key($this->data);
@@ -377,6 +385,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
      *
      * @return bool
      */
+	#[\ReturnTypeWillChange]
     public function valid()
     {
         return (current($this->data) !== false);
@@ -385,6 +394,7 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
     /**
      * Rewind
      */
+	#[\ReturnTypeWillChange]
     public function rewind()
     {
         reset($this->data);
